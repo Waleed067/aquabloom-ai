@@ -76,11 +76,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "NatureLens AI — Identify & Care for Plants and Fish" },
       { name: "description", content: "AI-powered identification, disease diagnosis, and care guidance for plants and fish from a single photo." },
       { name: "theme-color", content: "#0a9d7a" },
-      { property: "og:title", content: "NatureLens AI" },
-      { property: "og:description", content: "Snap a photo. Instantly identify, diagnose, and care for any plant or fish." },
+      { property: "og:title", content: "NatureLens AI — Identify & Care for Plants and Fish" },
+      { property: "og:description", content: "AI-powered identification, disease diagnosis, and care guidance for plants and fish from a single photo." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "NatureLens AI — Identify & Care for Plants and Fish" },
+      { name: "twitter:description", content: "AI-powered identification, disease diagnosis, and care guidance for plants and fish from a single photo." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6ed93a03-9d0e-4898-8209-996b79f4c1ec/id-preview-39cd818a--790649a3-f7ce-4522-a626-f103068e3e92.lovable.app-1778378042058.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6ed93a03-9d0e-4898-8209-996b79f4c1ec/id-preview-39cd818a--790649a3-f7ce-4522-a626-f103068e3e92.lovable.app-1778378042058.png" },
     ],
     links: [
       {
