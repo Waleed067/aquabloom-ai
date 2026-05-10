@@ -10,6 +10,10 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ScanRouteImport } from './routes/scan'
+import { Route as KnowledgeRouteImport } from './routes/knowledge'
+import { Route as HistoryRouteImport } from './routes/history'
+import { Route as GrowthRouteImport } from './routes/growth'
+import { Route as CommunityRouteImport } from './routes/community'
 import { Route as ChatRouteImport } from './routes/chat'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ResultIdRouteImport } from './routes/result.$id'
@@ -17,6 +21,26 @@ import { Route as ResultIdRouteImport } from './routes/result.$id'
 const ScanRoute = ScanRouteImport.update({
   id: '/scan',
   path: '/scan',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KnowledgeRoute = KnowledgeRouteImport.update({
+  id: '/knowledge',
+  path: '/knowledge',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HistoryRoute = HistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GrowthRoute = GrowthRouteImport.update({
+  id: '/growth',
+  path: '/growth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommunityRoute = CommunityRouteImport.update({
+  id: '/community',
+  path: '/community',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ChatRoute = ChatRouteImport.update({
@@ -38,12 +62,20 @@ const ResultIdRoute = ResultIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/chat': typeof ChatRoute
+  '/community': typeof CommunityRoute
+  '/growth': typeof GrowthRoute
+  '/history': typeof HistoryRoute
+  '/knowledge': typeof KnowledgeRoute
   '/scan': typeof ScanRoute
   '/result/$id': typeof ResultIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/chat': typeof ChatRoute
+  '/community': typeof CommunityRoute
+  '/growth': typeof GrowthRoute
+  '/history': typeof HistoryRoute
+  '/knowledge': typeof KnowledgeRoute
   '/scan': typeof ScanRoute
   '/result/$id': typeof ResultIdRoute
 }
@@ -51,20 +83,53 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/chat': typeof ChatRoute
+  '/community': typeof CommunityRoute
+  '/growth': typeof GrowthRoute
+  '/history': typeof HistoryRoute
+  '/knowledge': typeof KnowledgeRoute
   '/scan': typeof ScanRoute
   '/result/$id': typeof ResultIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/chat' | '/scan' | '/result/$id'
+  fullPaths:
+    | '/'
+    | '/chat'
+    | '/community'
+    | '/growth'
+    | '/history'
+    | '/knowledge'
+    | '/scan'
+    | '/result/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/chat' | '/scan' | '/result/$id'
-  id: '__root__' | '/' | '/chat' | '/scan' | '/result/$id'
+  to:
+    | '/'
+    | '/chat'
+    | '/community'
+    | '/growth'
+    | '/history'
+    | '/knowledge'
+    | '/scan'
+    | '/result/$id'
+  id:
+    | '__root__'
+    | '/'
+    | '/chat'
+    | '/community'
+    | '/growth'
+    | '/history'
+    | '/knowledge'
+    | '/scan'
+    | '/result/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ChatRoute: typeof ChatRoute
+  CommunityRoute: typeof CommunityRoute
+  GrowthRoute: typeof GrowthRoute
+  HistoryRoute: typeof HistoryRoute
+  KnowledgeRoute: typeof KnowledgeRoute
   ScanRoute: typeof ScanRoute
   ResultIdRoute: typeof ResultIdRoute
 }
@@ -76,6 +141,34 @@ declare module '@tanstack/react-router' {
       path: '/scan'
       fullPath: '/scan'
       preLoaderRoute: typeof ScanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/knowledge': {
+      id: '/knowledge'
+      path: '/knowledge'
+      fullPath: '/knowledge'
+      preLoaderRoute: typeof KnowledgeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/history': {
+      id: '/history'
+      path: '/history'
+      fullPath: '/history'
+      preLoaderRoute: typeof HistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/growth': {
+      id: '/growth'
+      path: '/growth'
+      fullPath: '/growth'
+      preLoaderRoute: typeof GrowthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/community': {
+      id: '/community'
+      path: '/community'
+      fullPath: '/community'
+      preLoaderRoute: typeof CommunityRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/chat': {
@@ -105,6 +198,10 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ChatRoute: ChatRoute,
+  CommunityRoute: CommunityRoute,
+  GrowthRoute: GrowthRoute,
+  HistoryRoute: HistoryRoute,
+  KnowledgeRoute: KnowledgeRoute,
   ScanRoute: ScanRoute,
   ResultIdRoute: ResultIdRoute,
 }
